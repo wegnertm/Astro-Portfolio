@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	--primary-color: theme('colors.primary.DEFAULT');
+	--primary-dark: theme('colors.primary.dark');
+	--primary-darker: theme('colors.primary.darker');
+	--primary-light: theme('colors.primary.light');
+	--bright-color: theme('colors.bright');
+	--gray-color: theme('colors.gray.DEFAULT');
+	--gray-light: theme('colors.gray.light');
+	--dark: theme('colors.dark');
+	--white: theme('colors.white');
+	--primary-gradient: linear-gradient(
+		90deg,
+		var(--primary-color) 0%,
+		var(--primary-dark) 35%,
+		var(--primary-darker) 100%
+	);
+}
+
+body {
+	font-family: 'Roboto', sans-serif, 'Inter', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	padding: 0 1rem;
+	margin: 0 auto;
+	max-width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* @layer base {
+	@media (scripting: none) {
+		@media (prefers-color-scheme: dark) {
+			:root {
+				@apply dark;
+			}
+		}
+	}
+} */
+
+.dark {
+	main {
+		background-color: var(--primary-darker);
+		color: var(--primary-light);
+	}
+}

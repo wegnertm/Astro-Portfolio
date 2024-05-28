@@ -1,0 +1,31 @@
+---
+const { href, title, size = 'md', isOutline, theme, classes, ...rest } = Astro.props;
+const backgroundColor = `var(--${theme})`;
+const textColor = theme === 'primary' ? 'text-primary-light' : `var(--${theme})`;
+const shadow = theme === 'primary' ? 'shadow-primary' : `var(--${theme})`;
+const shadowColor = theme === 'primary' ? 'shadow-primary' : `var(--${theme})`;
+---
+
+<a
+	href="{href}"
+	data-size={size}
+	class:list={[classes, { outline: isOutline }]}
+	{...rest}
+	class="bg-primary text-primary-light shadow-dark shadow-md rounded-full px-4 py-2 hover:bg-primary-light hover:text-primary-dark hover:shadow-inner hover:shadow-primary-dark transition-all duration-300"
+	>{title}</a
+>
+
+<style
+	define:vars={{
+		backgroundColor,
+		textColor,
+		shadowColor,
+	}}
+>
+	a {
+		--bg: var(--backgroundColor);
+		--color: var(--textColor);
+		--shadow: var(--shadow);
+		--shadow-color: var(--shadow-color);
+	}
+</style>
