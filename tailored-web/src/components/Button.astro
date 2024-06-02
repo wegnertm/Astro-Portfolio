@@ -1,9 +1,29 @@
 ---
-const { href, title, size = 'md', isOutline, theme, classes, ...rest } = Astro.props;
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+	size?: 'sm' | 'md' | 'lg';
+	isOutline?: boolean;
+	theme?:
+		| 'primary'
+		| 'primary-dark'
+		| 'primary-darker'
+		| 'primary-light'
+		| 'primary-bright'
+		| 'gray'
+		| 'light-gray'
+		| 'dark'
+		| 'white';
+	classes?: string;
+}
+
+const { href, title, size = 'md', isOutline, theme = 'primary', classes, ...rest } = Astro.props;
 const backgroundColor = `var(--${theme})`;
-const textColor = theme === 'primary' ? 'text-primary-light' : `var(--${theme})`;
-const shadow = theme === 'primary' ? 'shadow-primary' : `var(--${theme})`;
-const shadowColor = theme === 'primary' ? 'shadow-primary' : `var(--${theme})`;
+const textColor =
+	theme === 'primary-bright' || theme === 'white' || theme === 'light-gray'
+		? 'var(--dark)'
+		: 'var(--primary-light)';
+const shadowColor = `var(--${theme})`;
 ---
 
 <a
@@ -11,9 +31,9 @@ const shadowColor = theme === 'primary' ? 'shadow-primary' : `var(--${theme})`;
 	data-size={size}
 	class:list={[classes, { outline: isOutline }]}
 	{...rest}
-	class="bg-primary text-primary-light shadow-dark shadow-md rounded-full px-4 py-2 hover:bg-primary-light hover:text-primary-dark hover:shadow-inner hover:shadow-primary-dark transition-all duration-300"
-	>{title}</a
->
+	class="rounded-full px-4 py-2 transition-all duration-300 hover:bg-primary-light hover:text-primary-dark hover:shadow-inner hover:shadow-primary-dark">
+	{title}
+</a>
 
 <style
 	define:vars={{
@@ -25,7 +45,24 @@ const shadowColor = theme === 'primary' ? 'shadow-primary' : `var(--${theme})`;
 	a {
 		--bg: var(--backgroundColor);
 		--color: var(--textColor);
-		--shadow: var(--shadow);
-		--shadow-color: var(--shadow-color);
+		--size: var(--size);
+		--shadow-color: var(--shadowColor);
+
+		font: inherit;
+		background-color: var(--bg);
+		color: var(--color);
+		box-shadow: 0 0 0 var(--size) var(--shadow-color);
+	}
+
+	a:hover {
+		@apply transition-all duration-300;
+
+		@apply bg-primary-light text-primary-dark shadow-inner shadow-primary-dark;
+	}
+
+	@if (theme === 'white' || theme === 'light-gray') {
+		.a:hover {
+			@apply bg-dark text-primary-light;
+		}
 	}
 </style>
