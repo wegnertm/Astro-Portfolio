@@ -1,0 +1,18 @@
+---
+import Button from '@/components/Button.astro';
+---
+
+<div
+	class="bg-primary shadow-md dark:bg-dark dark:shadow-none lg:py-5"
+	style="background-image: url('/hero/green-hero.png'); background-size: cover; background-repeat: no-repeat;">
+	<div
+		class="container-fluid md:container mx-auto grid grid-cols-1 md:grid-cols-2 place-items-center align-middle">
+		<div>
+			<h1 class="special-heading">I'm Teisha, a Frontend Developer and Accessibility Expert</h1>
+			<Button title={'View Projects'} theme="primary" size="xl" />
+		</div>
+		<div class="py-5 md:py-0">
+			<img src="/hero/hero-me-v2.png" alt="Tailored Web" class="lg:h-96 w-auto" />
+		</div>
+	</div>
+</div>

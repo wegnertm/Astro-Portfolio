@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'a'> {
-	size?: 'sm' | 'md' | 'lg';
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 	isOutline?: boolean;
 	theme?:
 		| 'primary'
@@ -28,10 +28,9 @@ const shadowColor = `var(--${theme})`;
 
 <a
 	href="{href}"
-	data-size={size}
-	class:list={[classes, { outline: isOutline }]}
+	class:list={[classes, { outline: isOutline }, `text-${size}`]}
 	{...rest}
-	class="rounded-full px-4 py-2 transition-all duration-300 hover:bg-primary-light hover:text-primary-dark hover:shadow-inner hover:shadow-primary-dark">
+	class="rounded-full px-4 py-2 transition-all duration-300">
 	{title}
 </a>
 
@@ -45,10 +44,8 @@ const shadowColor = `var(--${theme})`;
 	a {
 		--bg: var(--backgroundColor);
 		--color: var(--textColor);
-		--size: var(--size);
 		--shadow-color: var(--shadowColor);
 
-		font: inherit;
 		background-color: var(--bg);
 		color: var(--color);
 		box-shadow: 0 0 0 var(--size) var(--shadow-color);
