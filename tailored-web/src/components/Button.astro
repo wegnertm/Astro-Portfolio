@@ -35,6 +35,7 @@ const shadowColor = `var(--${theme})`;
 </a>
 
 <style
+	lang="scss"
 	define:vars={{
 		backgroundColor,
 		textColor,
@@ -57,7 +58,7 @@ const shadowColor = `var(--${theme})`;
 		@apply bg-primary-light text-primary-dark shadow-inner shadow-primary-dark;
 	}
 
-	@if (theme === 'white' || theme === 'light-gray') {
+	@if (theme == 'white' or theme == 'light-gray') {
 		.a:hover {
 			@apply bg-dark text-primary-light;
 		}

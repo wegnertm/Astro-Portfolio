@@ -1,0 +1,20 @@
+:root {
+	--primary: theme('colors.primary.DEFAULT');
+	--primary-dark: theme('colors.primary.dark');
+	--primary-darker: theme('colors.primary.darker');
+	--primary-light: theme('colors.primary.light');
+	--primary-bright: theme('colors.primary.bright');
+	--secondary: theme('colors.secondary.DEFAULT');
+	--gray: theme('colors.gray.DEFAULT');
+	--light-gray: theme('colors.gray.light');
+	--dark: theme('colors.dark');
+	--white: theme('colors.white');
+	--primary-gradient: linear-gradient(
+		90deg,
+		var(--primary-color) 0%,
+		var(--primary-dark) 35%,
+		var(--primary-darker) 100%
+	);
+	--body-gradient: linear-gradient(to bottom right, var(--secondary) 0%, #62606d 25%, transparent 100%);
+	--red: red;
+}

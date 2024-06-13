@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'colors.scss';
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+
+body {
+	font-family: 'Roboto', sans-serif, 'Inter', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	padding: 0;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+h1,
+p {
+	margin-bottom: 1rem;
+}
+
+h1.special-heading {
+	font-family: 'Germania One', system-ui;
+	font-weight: 700;
+	font-size: 3.75rem;
+	line-height: 1.1;
+	-webkit-text-fill-color: var(--primary-light);
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: var(--primary-darker);
+}
+
+.bg-primary-gradient {
+	background: #62606d;
+	background: var(--primary-gradient);
+}
+
+.bg-body-gradient {
+	background: var(--body-gradient);
+}
