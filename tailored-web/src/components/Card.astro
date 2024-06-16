@@ -1,6 +1,5 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import { BackgroundImage, ImageSupportDetection } from 'astro-imagetools/components';
 
 interface Props extends HTMLAttributes<'a'> {
 	href: string;
@@ -13,14 +12,12 @@ interface Props extends HTMLAttributes<'a'> {
 const { href, title, classes, image, description, ...rest } = Astro.props;
 ---
 
-<BackgroundImage src={image}>
-	<a class="project-card my-5 mt-7 grid grid-cols-3 bg-decs h-100" href={href} target="_blank">
-		<div class="flex content-center place-items-center justify-center">
-			<h3 class="special-headling mx-3">{title}</h3>
-			<p class="text-primary-darker">{description}</p>
-		</div>
-	</a>
-</BackgroundImage>
+<a class="project-card my-5 mt-7 grid grid-cols-3 bg-decs h-100" href={href} target="_blank">
+	<div class="flex content-center place-items-center justify-center">
+		<h3 class="special-headling mx-3">{title}</h3>
+		<p class="text-primary-darker">{description}</p>
+	</div>
+</a>
 
 <style lang="scss">
 	.project-card {

@@ -1,7 +1,6 @@
 ---
 import Navigation from '@/components/Navigation.astro';
 import { ViewTransitions } from 'astro:transitions';
-import { ImageSupportDetection } from 'astro-imagetools/components';
 import '@styles/main.scss';
 
 const { title = 'My Portfolio', description = 'My portfolio created with Astro, and TailwindCSS' } =
@@ -24,7 +23,6 @@ const { title = 'My Portfolio', description = 'My portfolio created with Astro, 
 		<meta name="description" content={description} />
 		<title>{title}</title>
 		<ViewTransitions />
-		<ImageSupportDetection />
 	</head>
 	<body>
 		<Navigation />
