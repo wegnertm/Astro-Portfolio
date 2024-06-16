@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import 'colors.scss';
+@import 'buttons.scss';
 
 *,
 *::before,
@@ -62,12 +63,29 @@ body {
 	font-family: 'Roboto', sans-serif, 'Inter', sans-serif;
 	margin: 0;
 	padding: 0;
-}
 
-main {
-	padding: 0;
-	margin: 0 auto;
-	max-width: 100%;
+	main {
+		padding: 0;
+		margin: 0 auto;
+		max-width: 100%;
+		position: relative;
+		overflow: hidden;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-image: url('bg-decs-lg.svg');
+			background-size: cover;
+			background-position: center;
+			opacity: 0.125;
+		}
+		div {
+			position: relative;
+		}
+	}
 }
 
 p {

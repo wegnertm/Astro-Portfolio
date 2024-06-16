@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import Button from './Button.astro';
 
 interface Props extends HTMLAttributes<'a'> {
 	href: string;
@@ -19,7 +20,12 @@ const { href, title, classes, image, imageAlt, imgPosition, description, ...rest
 		<img src={image} alt={imageAlt ? imageAlt : ''} class="w-full h-full" />
 	</div>
 	<div class="flex flex-col justify-center col-span-2">
-		<h3 class="h2 special-heading">{title}</h3>
-		<p class="text-primary-darker">{description}</p>
+		<div class="col-span-2">
+			<h3 class="h2 special-heading">{title}</h3>
+			<p class="text-primary-darker">{description}</p>
+		</div>
+		<div class="col-span-1 mt-5">
+			<Button href={href} title="Visit Website →" theme="primary-dark" size="md" />
+		</div>
 	</div>
 </div>

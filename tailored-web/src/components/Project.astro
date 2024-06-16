@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import Button from './Button.astro';
 
 interface Props extends HTMLAttributes<'a'> {
 	href: string;
@@ -8,29 +9,58 @@ interface Props extends HTMLAttributes<'a'> {
 	image: string;
 	position: 'left' | 'right';
 	description?: string;
+	theme?: string;
 }
 
-const { href, title, classes, image, position, description, ...rest } = Astro.props;
+const { href, title, classes, image, position, description, theme = 'primary-darker', ...rest } = Astro.props;
+const cardClasses = 'bg-decs project-card grid grid-cols-6 gap-4 justify-between my-5';
 ---
 
 {
 	position === 'left' ? (
-		<a class="project-card my-5 mt-7 grid grid-cols-3 bg-decs" href={href} target="_blank">
-			<div class="flex content-center place-items-center justify-center col-span-2">
-				<img src={image} alt="Project Placeholder" class="w-full h-full" />
+		<a class:list={[cardClasses, `img-position-${position}`, `theme-${theme}`]} href={href} target="_blank">
+			<div class="flex content-center place-items-center justify-center col-span-6 lg:col-span-4">
+				<img
+					src={image}
+					alt="Project Placeholder"
+					class="w-full h-auto border-2 border-transparent rounded-md"
+				/>
 			</div>
-			<div class="flex flex-col justify-center col-span-1 mr-3">
+			<div class="flex flex-col justify-center col-span-6 lg:col-span-2">
 				<h3 class="h2 special-heading">{title}</h3>
-				<p class="text-primary-darker">{description}</p>
+				<p class:list={[`text-${theme}`]}>{description}</p>
+				<div class="w-50 mt-5">
+					<p class:list={[`btn btn-${theme}`]}>
+						Learn More{' '}
+						<>
+							<span class="sr-only">about {title}</span>
+							<span aria-hidden="true">→</span>
+						</>
+					</p>
+				</div>
 			</div>
 		</a>
 	) : (
-		<a class="project-card my-5 mt-7 grid grid-cols-3 bg-decs" href={href} target="_blank">
-			<div class="flex content-center place-items-center justify-center col-span-1">
-				<h2 class="h3 mx-3">{title}</h2>
+		<a class:list={[cardClasses, `img-position-${position}`, `theme-${theme}`]} href={href} target="_blank">
+			<div class="flex flex-col justify-center col-span-6 lg:col-span-2 order-2 lg:order-1">
+				<h3 class="h2 special-heading">{title}</h3>
+				<p class:list={[`text-${theme}`]}>{description}</p>
+				<div class="mt-5">
+					<p class:list={[`btn btn-${theme}`]}>
+						Learn More{' '}
+						<>
+							<span class="sr-only">about {title}</span>
+							<span aria-hidden="true">→</span>
+						</>
+					</p>
+				</div>
 			</div>
-			<div class="flex content-center place-items-center justify-center col-span-2">
-				<img src={image} alt="Project Placeholder" class="w-full h-full" />
+			<div class="flex content-center place-items-center justify-center col-span-6 lg:col-span-4 order-1 lg:order-2">
+				<img
+					src={image}
+					alt="Project Placeholder"
+					class="w-full h-auto border-2 border-transparent rounded-md"
+				/>
 			</div>
 		</a>
 	)
@@ -39,14 +69,85 @@ const { href, title, classes, image, position, description, ...rest } = Astro.pr
 <style lang="scss">
 	.project-card {
 		background: var(--primary);
-		background: linear-gradient(150deg, var(--primary-darker) 0%, #3fb380 50%, var(--primary-light) 100%);
+		background: linear-gradient(
+			150deg,
+			var(--primary-darker) 0%,
+			var(--primary-508) 50%,
+			var(--primary-light) 100%
+		);
 		background-repeat: no-repeat;
 		border: 2px solid;
 		border-radius: 25px;
-		transition: all 0.3s ease-in-out;
+		padding: 2rem;
+		@apply transition-all duration-500 ease-in-out;
 		&:hover,
 		&:focus {
-			border: 2px solid var(--primary-darker);
+			border-color: transparent;
+			box-shadow:
+				inset 0 0 0 0.125rem var(--primary-darker),
+				0 0 0 0.125rem var(--light-gray),
+				0 0 0 0.25rem var(--primary-darker);
+			.btn-primary-light {
+				@apply bg-primary-dark text-primary-light;
+			}
+			.btn-primary {
+				@apply bg-primary-darker text-primary-508;
+			}
+			.btn-primary-dark {
+				@apply bg-primary-light text-primary-dark;
+			}
+			.btn-primary-darker {
+				@apply bg-primary-light text-primary-darker;
+			}
+			.btn-secondary-light {
+				@apply bg-secondary-dark text-secondary-light;
+			}
+			.btn-secondary {
+				@apply bg-secondary-light text-secondary;
+			}
+			.btn-secondary-dark {
+				@apply bg-secondary-light text-secondary-dark;
+			}
+			.btn-secondary-darker {
+				@apply bg-secondary-light text-secondary-darker;
+			}
+		}
+		.btn {
+			text-align: center;
+			max-width: fit-content;
+		}
+		&.img-position-right {
+			background: linear-gradient(
+				-150deg,
+				var(--primary-darker) 0%,
+				var(--primary-508) 50%,
+				var(--primary-light) 100%
+			);
+		}
+		&.theme-secondary,
+		&.theme-secondary-light,
+		&.theme-secondary-dark,
+		&.theme-secondary-darker {
+			background: var(--secondary);
+			background: linear-gradient(
+				150deg,
+				var(--secondary-darker) 0%,
+				var(--secondary-dark) 50%,
+				var(--secondary-light) 100%
+			);
+			&.img-position-right {
+				background: linear-gradient(
+					-150deg,
+					var(--secondary-darker) 0%,
+					var(--secondary-dark) 50%,
+					var(--secondary-light) 100%
+				);
+			}
+			.special-heading {
+				-webkit-text-fill-color: var(--secondary-light);
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: var(--secondary-darker);
+			}
 		}
 	}
 </style>

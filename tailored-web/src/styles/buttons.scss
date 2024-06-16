@@ -1,0 +1,72 @@
+@import 'colors.scss';
+
+.btn {
+	@apply font-bold py-2 px-4 rounded-full;
+	@apply transition-all duration-300;
+}
+
+.btn-primary-light {
+	@apply bg-primary-light text-primary-dark;
+	&:hover,
+	&:focus {
+		@apply bg-primary-dark text-primary-light;
+	}
+}
+
+.btn-primary {
+	@apply bg-primary-508 text-primary-darker;
+	&:hover,
+	&:focus {
+		@apply bg-primary-darker text-primary-508;
+	}
+}
+
+.btn-primary-dark {
+	@apply bg-primary-dark text-primary-light;
+	&:hover,
+	&:focus {
+		@apply bg-primary-light text-primary-dark;
+	}
+}
+
+.btn-primary-darker {
+	@apply bg-primary-darker text-primary-light;
+	&:hover,
+	&:focus {
+		@apply bg-primary-light text-primary-darker;
+	}
+}
+
+.btn-secondary-light {
+	@apply bg-secondary-light text-secondary-dark;
+	&:hover,
+	&:focus {
+		@apply bg-secondary-dark text-secondary-light;
+	}
+}
+
+.btn-secondary {
+	@apply bg-secondary text-secondary-light;
+	font-size: 19px;
+	font-weight: bold;
+	&:hover,
+	&:focus {
+		@apply bg-secondary-light text-secondary;
+	}
+}
+
+.btn-secondary-dark {
+	@apply bg-secondary-dark text-secondary-light;
+	&:hover,
+	&:focus {
+		@apply bg-secondary-light text-secondary-dark;
+	}
+}
+
+.btn-secondary-darker {
+	@apply bg-secondary-darker text-secondary-light;
+	&:hover,
+	&:focus {
+		@apply bg-secondary-light text-secondary-darker;
+	}
+}

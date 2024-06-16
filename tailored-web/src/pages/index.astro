@@ -10,31 +10,46 @@ import Image_Copy from '@/components/Image_Copy.astro';
 	<Hero />
 	<section class="bg-white">
 		<div class="container py-8">
-			<h2 class="text-primary-dark text-3xl text-center">Projects</h2>
-			<div class="grid grid-cols-1 gap-3 md:gap-5 justify-items-center">
-				<Project
-					href="https://brightstart.com/"
-					title="BrightStart"
-					image="/projects/brightstart-laptop.png"
-					position="left"
-					description="Built a custom WordPress theme for the Union Bank and Trust client."
-				/>
-				<Project
-					href="https://brightstart.com/"
-					title="BrightStart"
-					position="right"
-					image="/projects/bright-start-home.png"
-				/>
-				<Card href="https://brightstart.com/" title="BrightStart" image="/projects/brightstart-laptop.png" />
-				<Card href="https://brightstart.com/" title="BrightStart" image="/projects/bright-start-home.png" />
+			<div class="text-center">
+				<h2 class="text-primary-dark text-3xl">Latest Projects</h2>
+				<p>
+					I developed responsive and user-friendly custom WordPress themes using PHP, ACF Pro, Bootstrap, and
+					JavaScript, implementing designs from Nelnet's designer in Adobe XD. These themes prioritize
+					accessibility, ensuring they provide an inclusive and seamless user experience across various
+					devices and platforms while meeting specific client requirements.
+				</p>
 			</div>
-			<Image_Copy
+			<Project
+				href="https://factsmgt.com/"
+				title="FactsMGT"
+				image="placeholder"
+				position="left"
+				theme="secondary-dark"
+				description="Redesigned the FactsMGT website using a custom built Page Builder developed with PHP, ACF Pro, and Javascript."
+			/>
+			<Project
+				href="https://campusguard.com/"
+				title="CampusGuard"
+				image="/projects/campusguard-featuredtabs.png"
+				position="right"
+				theme="secondary-darker"
+				description="Created a Featured Tab component allowing clients to effortlessly display customizable tabs across multiple website pages, enhancing user experience with structured content presentation and efficient organization."
+			/>
+			<Project
 				href="https://brightstart.com/"
 				title="BrightStart"
-				image="/projects/bright-start-home.png"
-				imageAlt="Project Placeholder"
-				imgPosition="left"
-				description="Built a custom WordPress theme for the Union Bank and Trust client."
+				image="/projects/brightstart-tables.png"
+				position="left"
+				theme="primary-dark"
+				description="Developed a plugin enabling seamless .csv file uploads to update BrightStart's performance tables daily, monthly, and yearly, automating data entry for up-to-date metrics and enhancing operational efficiency."
+			/>
+			<Project
+				href="https://nelnetenergy.com/"
+				title="Nelnet Renewable Energy"
+				image="/projects/nelnetenergy-map.png"
+				position="right"
+				theme="primary-darker"
+				description="Engineered an SVG map that dynamically updates based on a State Custom Post Type, adjusting fill colors and adding corresponding buttons site-wide for enhanced user interaction and accessible state-related information. "
 			/>
 		</div>
 	</section>
