@@ -16,6 +16,48 @@
 	font: inherit;
 }
 
+.bg-primary-gradient {
+	background-image: linear-gradient(
+		175deg,
+		var(--primary-light) 0%,
+		var(--primary-dark) 35%,
+		var(--primary-darker) 100%
+	);
+}
+
+.bg-decs,
+.bg-decs-lg {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: url('bg-decs.svg');
+		background-size: cover;
+		background-position: center;
+		opacity: 0.25;
+		pointer-events: none;
+	}
+	div:not(.absolute) {
+		position: relative;
+	}
+}
+
+.bg-decs-lg {
+	&:before {
+		background: url('bg-decs-lg.svg');
+	}
+}
+
+.bg-body-gradient {
+	background: var(--body-gradient);
+	background-image: linear-gradient(180deg, #62606d 0%, transparent 100%);
+}
+
 body {
 	font-family: 'Roboto', sans-serif, 'Inter', sans-serif;
 	margin: 0;
@@ -28,26 +70,72 @@ main {
 	max-width: 100%;
 }
 
-h1,
 p {
+	font-size: 16px;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 p {
 	margin-bottom: 1rem;
 }
 
-h1.special-heading {
-	font-family: 'Germania One', system-ui;
-	font-weight: 700;
-	font-size: 3.75rem;
+h1 {
+	font-size: 3.5rem;
 	line-height: 1.1;
-	-webkit-text-fill-color: var(--primary-light);
-	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: var(--primary-darker);
+	font-weight: 700;
+	&.special-heading {
+		font-family: 'Germania One', system-ui;
+		font-size: 3.75rem;
+		-webkit-text-fill-color: var(--primary-light);
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: var(--primary-darker);
+	}
+	@media screen and (max-width: 768px) {
+		font-size: 2.75rem;
+	}
 }
 
-.bg-primary-gradient {
-	background: #62606d;
-	background: var(--primary-gradient);
+h2,
+.h2 {
+	font-size: 2.5rem;
+	line-height: 1.1;
+	font-weight: 700;
+	&.special-heading {
+		font-family: 'Germania One', system-ui;
+		-webkit-text-fill-color: var(--primary-light);
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: var(--primary-darker);
+	}
+	@media screen and (max-width: 768px) {
+		font-size: 2rem;
+	}
 }
 
-.bg-body-gradient {
-	background: var(--body-gradient);
+h3,
+.h3 {
+	font-size: 1.75rem;
+	line-height: 1.1;
+	font-weight: 700;
+}
+
+h4,
+.h4 {
+	font-size: 1.5rem;
+	line-height: 1.1;
+}
+
+h5,
+.h5 {
+	font-size: 1.25rem;
+	line-height: 1.1;
 }

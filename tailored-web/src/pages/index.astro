@@ -1,9 +1,41 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import Hero from '@/components/Hero.astro';
+import Project from '@/components/Project.astro';
+import Card from '@/components/Card.astro';
+import Image_Copy from '@/components/Image_Copy.astro';
 ---
 
 <MainLayout title="Tailored Web">
 	<Hero />
-	<div class="bg-primary-gradient min-h-10"></div>
+	<section class="bg-white">
+		<div class="container py-8">
+			<h2 class="text-primary-dark text-3xl text-center">Projects</h2>
+			<div class="grid grid-cols-1 gap-3 md:gap-5 justify-items-center">
+				<Project
+					href="https://brightstart.com/"
+					title="BrightStart"
+					image="/projects/brightstart-laptop.png"
+					position="left"
+					description="Built a custom WordPress theme for the Union Bank and Trust client."
+				/>
+				<Project
+					href="https://brightstart.com/"
+					title="BrightStart"
+					position="right"
+					image="/projects/bright-start-home.png"
+				/>
+				<Card href="https://brightstart.com/" title="BrightStart" image="/projects/brightstart-laptop.png" />
+				<Card href="https://brightstart.com/" title="BrightStart" image="/projects/bright-start-home.png" />
+			</div>
+			<Image_Copy
+				href="https://brightstart.com/"
+				title="BrightStart"
+				image="/projects/bright-start-home.png"
+				imageAlt="Project Placeholder"
+				imgPosition="left"
+				description="Built a custom WordPress theme for the Union Bank and Trust client."
+			/>
+		</div>
+	</section>
 </MainLayout>

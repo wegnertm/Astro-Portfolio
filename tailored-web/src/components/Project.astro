@@ -1,0 +1,52 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+	href: string;
+	title: string;
+	classes?: string;
+	image: string;
+	position: 'left' | 'right';
+	description?: string;
+}
+
+const { href, title, classes, image, position, description, ...rest } = Astro.props;
+---
+
+{
+	position === 'left' ? (
+		<a class="project-card my-5 mt-7 grid grid-cols-3 bg-decs" href={href} target="_blank">
+			<div class="flex content-center place-items-center justify-center col-span-2">
+				<img src={image} alt="Project Placeholder" class="w-full h-full" />
+			</div>
+			<div class="flex flex-col justify-center col-span-1 mr-3">
+				<h3 class="h2 special-heading">{title}</h3>
+				<p class="text-primary-darker">{description}</p>
+			</div>
+		</a>
+	) : (
+		<a class="project-card my-5 mt-7 grid grid-cols-3 bg-decs" href={href} target="_blank">
+			<div class="flex content-center place-items-center justify-center col-span-1">
+				<h2 class="h3 mx-3">{title}</h2>
+			</div>
+			<div class="flex content-center place-items-center justify-center col-span-2">
+				<img src={image} alt="Project Placeholder" class="w-full h-full" />
+			</div>
+		</a>
+	)
+}
+
+<style lang="scss">
+	.project-card {
+		background: var(--primary);
+		background: linear-gradient(150deg, var(--primary-darker) 0%, #3fb380 50%, var(--primary-light) 100%);
+		background-repeat: no-repeat;
+		border: 2px solid;
+		border-radius: 25px;
+		transition: all 0.3s ease-in-out;
+		&:hover,
+		&:focus {
+			border: 2px solid var(--primary-darker);
+		}
+	}
+</style>
