@@ -1,13 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import type { HTMLAttributes } from 'astro/types';
-interface Props extends HTMLAttributes<'svg'> {
-	name: string;
-	title?: string;
-	size?: number;
-	width?: number;
-	height?: number;
-}
 
 const { name, title, size = 75, width = size, height = size, ...rest } = Astro.props;
 ---
@@ -15,30 +7,25 @@ const { name, title, size = 75, width = size, height = size, ...rest } = Astro.p
 <footer class="bg-primary border-t-2 border-primary-dark">
 	<div class="container">
 		<div class="flex flex-row justify-between items-center">
-			<img src="/logos/green-highlight-stacked.svg" alt="Tailored Web" class="h-24 w-auto" />
+			<img src="/logos/green-highlight-stacked.svg" alt="Tailored Web" class="h-20 w-auto" />
 			<div class="flex flex-col justify-center items-center">
 				<p class="text-primary-light text-sm">© 2024 Teisha. All rights reserved.</p>
 				<p class="text-xs text-primary-light">Built with Astro + TailwindCSS</p>
 			</div>
 			<div class="social-icons flex flex-row">
-				<a href="https://www.linkedin.com/in/teishawegner" target="_blank">
+				<a href="mailto:teishawegner@gmail.com">
 					<Icon name="email" width={width} height={height} />
 				</a>
-				<a href="https://www.linkedin.com/in/teishawegner" target="_blank">
+				<a href="https://github.com/wegnertm" target="_blank">
 					<Icon name="github" width={width} height={height} />
 				</a>
-				<a href="https://www.linkedin.com/in/teishawegner" target="_blank">
+				<a href="https://www.linkedin.com/in/teisha-wegner/" target="_blank">
 					<Icon name="linkedin" width={width} height={height} />
 				</a>
-				<a href="https://www.linkedin.com/in/teishawegner" target="_blank">
+				<a href="https://www.reddit.com/user/wegner21/" target="_blank">
 					<Icon name="reddit" width={width} height={height} />
 				</a>
 			</div>
 		</div>
 	</div>
 </footer>
-
-<style lang="scss">
-	.social-icons {
-	}
-</style>
