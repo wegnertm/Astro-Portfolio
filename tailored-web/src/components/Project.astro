@@ -7,28 +7,35 @@ interface Props extends HTMLAttributes<'a'> {
 	title: string;
 	classes?: string;
 	image: string;
+	alt?: string;
 	position: 'left' | 'right';
 	description?: string;
 	theme?: string;
 }
 
-const { href, title, classes, image, position, description, theme = 'primary-darker', ...rest } = Astro.props;
+const {
+	href,
+	title,
+	classes,
+	image,
+	alt,
+	position,
+	description,
+	theme = 'primary-darker',
+	...rest
+} = Astro.props;
 const cardClasses = 'bg-decs project-card grid grid-cols-6 gap-4 justify-between my-5';
 ---
 
 {
 	position === 'left' ? (
 		<a class:list={[cardClasses, `img-position-${position}`, `theme-${theme}`]} href={href} target="_blank">
-			<div class="flex content-center place-items-center justify-center col-span-6 lg:col-span-4">
-				<img
-					src={image}
-					alt="Project Placeholder"
-					class="w-full h-auto border-2 border-transparent rounded-md"
-				/>
+			<div class="flex content-center place-items-center justify-center col-span-6 lg:col-span-3">
+				<img src={image} alt={alt} class="w-full h-auto border-2 border-transparent rounded-md" />
 			</div>
-			<div class="flex flex-col justify-center col-span-6 lg:col-span-2">
+			<div class="flex flex-col justify-center col-span-6 lg:col-span-3">
 				<h3 class="h2 special-heading">{title}</h3>
-				<p class:list={[`text-${theme}`]}>{description}</p>
+				<p>{description}</p>
 				<div class="w-50 mt-5">
 					<p class:list={[`btn btn-${theme}`]}>
 						Learn More{' '}
@@ -42,9 +49,9 @@ const cardClasses = 'bg-decs project-card grid grid-cols-6 gap-4 justify-between
 		</a>
 	) : (
 		<a class:list={[cardClasses, `img-position-${position}`, `theme-${theme}`]} href={href} target="_blank">
-			<div class="flex flex-col justify-center col-span-6 lg:col-span-2 order-2 lg:order-1">
+			<div class="flex flex-col justify-center col-span-6 lg:col-span-3 order-2 lg:order-1">
 				<h3 class="h2 special-heading">{title}</h3>
-				<p class:list={[`text-${theme}`]}>{description}</p>
+				<p>{description}</p>
 				<div class="mt-5">
 					<p class:list={[`btn btn-${theme}`]}>
 						Learn More{' '}
@@ -55,12 +62,8 @@ const cardClasses = 'bg-decs project-card grid grid-cols-6 gap-4 justify-between
 					</p>
 				</div>
 			</div>
-			<div class="flex content-center place-items-center justify-center col-span-6 lg:col-span-4 order-1 lg:order-2">
-				<img
-					src={image}
-					alt="Project Placeholder"
-					class="w-full h-auto border-2 border-transparent rounded-md"
-				/>
+			<div class="flex content-center place-items-center justify-center col-span-6 lg:col-span-3 order-1 lg:order-2">
+				<img src={image} alt={alt} class="w-full h-auto border-2 border-transparent rounded-md" />
 			</div>
 		</a>
 	)
@@ -69,17 +72,15 @@ const cardClasses = 'bg-decs project-card grid grid-cols-6 gap-4 justify-between
 <style lang="scss">
 	.project-card {
 		background: var(--primary);
-		background: linear-gradient(
-			150deg,
-			var(--primary-darker) 0%,
-			var(--primary-508) 50%,
-			var(--primary-light) 100%
-		);
+		background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
 		background-repeat: no-repeat;
 		border: 2px solid;
 		border-radius: 25px;
 		padding: 2rem;
 		@apply transition-all duration-500 ease-in-out;
+		p:not(.btn) {
+			color: var(--primary-darker) !important;
+		}
 		&:hover,
 		&:focus {
 			border-color: transparent;

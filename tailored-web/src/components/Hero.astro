@@ -2,22 +2,14 @@
 import Button from '@/components/Button.astro';
 ---
 
-<div class="hero bg-primary shadow-lg dark:bg-dark dark:shadow-none p-5">
-	<div class="container-fluid md:container mx-auto grid grid-cols-1 md:grid-cols-3">
+<div class="hero bg-decs-sm bg-primary-gradient shadow-lg shadow-primary-dark py-5">
+	<div class="container-fluid md:container grid grid-cols-1 md:grid-cols-3">
 		<div class="col-span-2 flex-col content-center">
 			<h1 class="special-heading">I'm Teisha, a Frontend Developer and Accessibility Expert</h1>
-			<Button href="/projects" title="View Projects" theme="secondary-light" size="lg" />
+			<Button href="/projects" title="View Projects" theme="primary-light" size="lg" />
 		</div>
 		<div class="hidden sm:flex place-items-end justify-end py-5">
-			<img src="/hero/hero-me-v2.png" alt="Tailored Web" class="h-64 md:h-auto w-auto" />
+			<img src="/logos/tw-green-highlight.svg" alt="Tailored Web" class="h-64 md:h-auto w-auto opacity-50" />
 		</div>
 	</div>
 </div>
-
-<style lang="scss">
-	.hero {
-		background-image: url('hero/green-hero-sm.png');
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-</style>

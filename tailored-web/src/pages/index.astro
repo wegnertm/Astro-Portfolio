@@ -2,18 +2,18 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import Hero from '@/components/Hero.astro';
 import Project from '@/components/Project.astro';
-import Footer from '@/components/Footer.astro';
+import Skill from '@/components/Skill.astro';
 ---
 
 <MainLayout title="Tailored Web">
 	<Hero />
-	<section class="bg-white">
+	<section class="shadow-lg shadow-primary-dark" id="latest-projects">
 		<div class="container py-8">
 			<div class="text-center">
-				<h2 class="text-primary-dark text-3xl">Latest Projects</h2>
+				<h2 class="text-3xl">Latest Projects</h2>
 				<p>
-					I developed responsive and user-friendly custom WordPress themes using PHP, ACF Pro, Bootstrap, and
-					JavaScript, implementing designs from Nelnet's designer in Adobe XD. These themes prioritize
+					I develope responsive and user-friendly custom WordPress themes using PHP, ACF Pro, Bootstrap, and
+					JavaScript. I implement designs provided by a designer in Adobe XD. These themes prioritize
 					accessibility, ensuring they provide an inclusive and seamless user experience across various
 					devices and platforms while meeting specific client requirements.
 				</p>
@@ -21,35 +21,49 @@ import Footer from '@/components/Footer.astro';
 			<Project
 				href="https://factsmgt.com/"
 				title="FactsMGT"
-				image="placeholder"
+				image="/projects/facts_home_hero.png"
+				alt="Screenshot of FactsMGT homepage"
 				position="left"
-				theme="secondary-dark"
+				theme="primary-darker"
 				description="Redesigned the FactsMGT website using a custom built Page Builder developed with PHP, ACF Pro, and Javascript."
 			/>
 			<Project
 				href="https://campusguard.com/"
 				title="CampusGuard"
 				image="/projects/campusguard-featuredtabs.png"
+				alt="Screenshot of CampusGuard featured tabs component"
 				position="right"
-				theme="secondary-darker"
+				theme="primary-darker"
 				description="Created a Featured Tab component allowing clients to effortlessly display customizable tabs across multiple website pages, enhancing user experience with structured content presentation and efficient organization."
 			/>
 			<Project
 				href="https://brightstart.com/"
 				title="BrightStart"
 				image="/projects/brightstart-tables.png"
+				alt="Screenshot of BrightStart performance tables"
 				position="left"
-				theme="primary-dark"
+				theme="primary-darker"
 				description="Developed a plugin enabling seamless .csv file uploads to update BrightStart's performance tables daily, monthly, and yearly, automating data entry for up-to-date metrics and enhancing operational efficiency."
 			/>
 			<Project
 				href="https://nelnetenergy.com/"
 				title="Nelnet Renewable Energy"
 				image="/projects/nelnetenergy-map.png"
+				alt="Screenshot of Nelnet Renewable Energy map"
 				position="right"
 				theme="primary-darker"
 				description="Engineered an SVG map that dynamically updates based on a State Custom Post Type, adjusting fill colors and adding corresponding buttons site-wide for enhanced user interaction and accessible state-related information. "
 			/>
+		</div>
+	</section>
+	<section class="shadow-lg shadow-primary bg-primary" id="skills">
+		<div class="container py-8">
+			<div class="text-center">
+				<h2 class="text-3xl">Skills</h2>
+			</div>
+			<div class="skill-icons flex flex-row">
+				<Skill />
+			</div>
 		</div>
 	</section>
 </MainLayout>
